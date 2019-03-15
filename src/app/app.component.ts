@@ -16,16 +16,12 @@ export class AppComponent implements OnInit{
     page: number = 1;
     userFilter: any = { name: '' };
 
-  // heroes: any[];
-
   constructor(private dataService: DataService) {}
 
   getHeroes(){
     this.dataService.getHeroes().subscribe(
-      result => {
-      console.log(result),
-      this.heroes=Object.values(result),
-      console.log(this.heroes)});
+      result => {this.heroes=Object.values(result)}
+    );
   }
 
   ngOnInit(){
